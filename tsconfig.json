@@ -1,11 +1,16 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "module": "ESNext",
+    "module": "ES2022",
     "moduleResolution": "Bundler",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "types": [],
     "strict": true,
-    "types": ["chrome"],
-    "lib": ["ES2022", "DOM"]
+    "noUnusedLocals": true,
+    "noFallthroughCasesInSwitch": true,
+    "rootDir": "src",
+    "outDir": "dist",
+    "skipLibCheck": true
   },
   "include": ["src"]
 }

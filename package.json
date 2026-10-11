@@ -1,16 +1,18 @@
 {
   "name": "contextlens",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "description": "AI browser assistant Chrome extension (Manifest V3, TypeScript)",
+  "type": "module",
   "scripts": {
-    "build": "esbuild src/content.ts src/background.ts --bundle --outdir=dist --format=esm --target=chrome120",
-    "watch": "npm run build -- --watch",
-    "typecheck": "tsc --noEmit"
+    "build": "tsc -p tsconfig.json",
+    "watch": "tsc -p tsconfig.json --watch",
+    "typecheck": "tsc -p tsconfig.test.json",
+    "test": "tsx --test tests/*.test.ts"
   },
   "devDependencies": {
-    "@types/chrome": "^0.0.270",
-    "esbuild": "^0.23.0",
-    "typescript": "^5.5.0"
+    "@types/node": "^22.0.0",
+    "tsx": "^4.20.0",
+    "typescript": "^6.0.0"
   }
 }

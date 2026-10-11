@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>ContextLens settings</title>
+    <style>
+      :root { color-scheme: light dark; --border: #d9d9de; --muted: #6e6e73; --accent: #5b5bd6; }
+      @media (prefers-color-scheme: dark) { :root { --border: #3a3a40; --muted: #a1a1aa; --accent: #8b8bf0; } }
+      body { font: 14px/1.5 system-ui, -apple-system, sans-serif; max-width: 480px; margin: 48px auto; padding: 0 16px; }
+      h1 { font-size: 20px; margin-bottom: 4px; }
+      .lead { color: var(--muted); margin-top: 0; }
+      label { display: block; font-weight: 600; margin: 18px 0 6px; }
+      input, select { width: 100%; box-sizing: border-box; font: inherit; padding: 8px 10px;
+                      border: 1px solid var(--border); border-radius: 8px; background: transparent; color: inherit; }
+      .hint { color: var(--muted); font-size: 12px; margin: 4px 0 0; }
+      button { margin-top: 22px; font: inherit; padding: 8px 18px; border: 0; border-radius: 8px;
+               background: var(--accent); color: #fff; cursor: pointer; }
+      #status { color: var(--accent); min-height: 1.5em; }
+    </style>
+  </head>
+  <body>
+    <h1>ContextLens</h1>
+    <p class="lead">Select text on any page to explain, summarize, or rewrite it.</p>
+    <form id="settings">
+      <label for="provider">Provider</label>
+      <select id="provider">
+        <option value="openai">OpenAI</option>
+        <option value="anthropic">Anthropic</option>
+      </select>
+
+      <label for="apiKey">API key</label>
+      <input id="apiKey" type="password" autocomplete="off" spellcheck="false" required />
+      <p class="hint">Stored only on this device (chrome.storage.local) and sent only to the provider you choose.</p>
+
+      <label for="model">Model</label>
+      <input id="model" type="text" spellcheck="false" />
+      <p class="hint">Leave blank to use the default shown.</p>
+
+      <button type="submit">Save</button>
+      <p id="status" role="status"></p>
+    </form>
+    <script type="module" src="dist/options.js"></script>
+  </body>
+</html>

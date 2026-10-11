@@ -1,12 +1,20 @@
 {
   "manifest_version": 3,
   "name": "ContextLens",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Select text on any page to explain, summarize, or rewrite it with AI.",
   "permissions": ["storage"],
-  "host_permissions": ["<all_urls>"],
+  "host_permissions": ["https://api.openai.com/*", "https://api.anthropic.com/*"],
   "background": { "service_worker": "dist/background.js", "type": "module" },
   "content_scripts": [
-    { "matches": ["<all_urls>"], "js": ["dist/content.js"], "run_at": "document_idle" }
-  ]
+    { "matches": ["http://*/*", "https://*/*"], "js": ["dist/content.js"], "run_at": "document_idle" }
+  ],
+  "options_ui": { "page": "options.html", "open_in_tab": true },
+  "action": { "default_title": "ContextLens settings" },
+  "commands": {
+    "explain-selection": {
+      "suggested_key": { "default": "Alt+Shift+E" },
+      "description": "Explain the selected text"
+    }
+  }
 }
