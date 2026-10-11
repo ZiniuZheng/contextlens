@@ -4,7 +4,7 @@
 
 ContextLens is a Chrome extension that brings AI assistance into any web page. Select text and a floating panel appears right next to it, letting you **explain**, **summarize**, or **rewrite** it, with the answer streaming in token by token. No copy-pasting into a separate chat window.
 
-![ContextLens explaining a selected passage](docs/screenshot.png)
+![ContextLens explaining, summarizing and rewriting selected text on a Wikipedia page](docs/demo.gif)
 
 ## Features
 
