@@ -75,3 +75,8 @@ chrome.commands.onCommand.addListener(async (command) => {
 chrome.runtime.onMessage.addListener((msg: ContextLens.RuntimeMessage) => {
   if (msg?.type === "open-options") chrome.runtime.openOptionsPage();
 });
+
+// The toolbar button has no popup; clicking it opens the settings page.
+chrome.action.onClicked.addListener(() => {
+  chrome.runtime.openOptionsPage();
+});

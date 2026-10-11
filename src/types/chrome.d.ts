@@ -46,4 +46,8 @@ declare namespace chrome {
   namespace commands {
     const onCommand: chrome.runtime.Event<(command: string) => void>;
   }
+
+  namespace action {
+    const onClicked: chrome.runtime.Event<(tab: chrome.tabs.Tab) => void>;
+  }
 }
